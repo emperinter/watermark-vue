@@ -1,11 +1,14 @@
 {
-    "Add Watermark": "ウォーターマークを追加",
-    "Download": "ダウンロード",
-    "Watermark Text": "ウォーターマークのテキスト",
+    "Image Watermark": "画像ウォーターマーク",
+    "Add Watermark": "ウォーターマークを追加/変更",
+    "Download": "ウォーターマークファイルをダウンロード",
+    "Watermark Text": "ウォーターマークテキスト",
     "Font Size": "フォントサイズ",
     "Font Color": "フォントカラー",
     "Font Angle": "フォント角度",
     "Font Opacity": "フォント透明度",
-    "WaterMark Padding": "ウォーターマークのパディング",
-    "WaterMarkText": "この証明書は検証用です"
+    "WaterMark Padding": "ウォーターマーク間隔",
+    "WaterMarkText": "この文書は検証用です...",
+    "Buy": "寄付してみませんか？",
+    "Information": "フォントサイズと間隔に注意してください"
 }

@@ -1,11 +1,14 @@
 {
-    "Add Watermark": "Wasserzeichen hinzufügen",
-    "Download": "Herunterladen",
+    "Image Watermark": "Bild-Wasserzeichen",
+    "Add Watermark": "Wasserzeichen hinzufügen/ändern",
+    "Download": "Wasserzeichen-Datei herunterladen",
     "Watermark Text": "Wasserzeichen-Text",
     "Font Size": "Schriftgröße",
     "Font Color": "Schriftfarbe",
     "Font Angle": "Schriftwinkel",
     "Font Opacity": "Schrifttransparenz",
     "WaterMark Padding": "Wasserzeichen-Abstand",
-    "WaterMarkText": "Nur zur Verifizierung"
+    "WaterMarkText": "Dieses Dokument ist nur zur Überprüfung...",
+    "Buy": "Wie wäre es mit einer Spende?",
+    "Information": "Achten Sie auf Schriftgröße und Abstand"
 }

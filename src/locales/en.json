@@ -1,12 +1,14 @@
 {
-    "Add Watermark": "ウォーターマークを追加",
-    "Download": "ダウンロード",
-    "Watermark Text": "ウォーターマークのテキスト",
-    "Font Size": "フォントサイズ",
-    "Font Color": "フォントカラー",
-    "Font Angle": "フォント角度",
-    "Font Opacity": "フォント透明度",
-    "WaterMark Padding": "ウォーターマークのパディング",
-    "WaterMarkText": "この証明書は検証用です",
-    "Buy":"Buy Me A Beer"
+    "Image Watermark": "Image Watermark",
+    "Add Watermark": "Add/Modify Watermark",
+    "Download": "Download Watermark File",
+    "Watermark Text": "Watermark Text",
+    "Font Size": "Font Size",
+    "Font Color": "Font Color",
+    "Font Angle": "Font Angle",
+    "Font Opacity": "Font Opacity",
+    "WaterMark Padding": "Watermark Padding",
+    "WaterMarkText": "This document is for verification purposes only...",
+    "Buy": "Buy Me A Beer!",
+    "Information": "Pay attention to font size and spacing"
 }
