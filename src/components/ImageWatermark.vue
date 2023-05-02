@@ -1,67 +1,89 @@
 <template>
     <div class="common-layout">
         <el-container>
-            <el-aside width="20%">
-                <div class="options">
-                    <div class="option">
-                        <!-- <el-upload
-                        v-model:file-list="fileList"
-                        class="upload-demo"
-                        action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
-                        multiple
-                        :on-preview="handlePreview"
-                        :on-remove="handleRemove"
-                        :before-remove="beforeRemove"
-                        :limit="3"
-                        :on-exceed="handleExceed">
-                        <el-button type="primary">Click to upload</el-button>
-                        <input
-                            ref="uploadInput"
-                            type="file"
-                            style="display: none;"
-                            @change="handleFileUpload"
+            <el-header>
+                <h1 style="font-size: 18px;">{{ $t('Image Watermark') }}</h1>
+            </el-header>
+            <el-container>
+                <el-aside width="20%">
+                    <div class="options">
+                        <div class="option">
+                            <!-- <el-upload
+                            v-model:file-list="fileList"
+                            class="upload-demo"
+                            action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
                             multiple
-                            />
-                        </el-upload> -->
-                        <input type="file" @change="handleFileUpload" class="el-input__inner">
+                            :on-preview="handlePreview"
+                            :on-remove="handleRemove"
+                            :before-remove="beforeRemove"
+                            :limit="3"
+                            :on-exceed="handleExceed">
+                            <el-button type="primary">Click to upload</el-button>
+                            <input
+                                ref="uploadInput"
+                                type="file"
+                                style="display: none;"
+                                @change="handleFileUpload"
+                                multiple
+                                />
+                            </el-upload> -->
+                            <input type="file" @change="handleFileUpload">
+                        </div>
+                        <div>                        
+                            <label>{{ $t('Watermark Text') }}</label>
+                        </div>
+                        <br>
+                        <div class="option">
+                            <el-input v-model="watermarkText" @change="addWatermark"></el-input>
+                        </div>
+                        <div class="option">
+                            <label>{{ $t('Font Size')}}</label>
+                            <el-input-number v-model.number="fontSize" @change="addWatermark"></el-input-number>
+                        </div>
+                        <div class="option">
+                            <label>{{ $t('Font Angle')}}</label>
+                            <el-input-number v-model.number="angle" @change="addWatermark"></el-input-number>
+                        </div>      
+                        <div class="option">
+                            <label>{{ $t('WaterMark Padding')}}</label>
+                            <el-input-number v-model.number="padding" @change="addWatermark"></el-input-number>
+                        </div>      
+                        <div class="option">
+                            <label>{{ $t('Font Color')}}:</label>
+                            <el-color-picker v-model="color" @change="addWatermark"></el-color-picker>
+                        </div>
+                        <div class="option">
+                            <label>{{ $t('Font Opacity')}}:</label>
+                            <el-slider v-model.number="opacity" :min="0" :max="1" :step="0.05" @change="addWatermark"></el-slider>
+                        </div>
+                        <div class="option">
+                            <el-button type="primary" @click="addWatermark">{{ $t('Add Watermark')}}</el-button>
+                        </div>
+                        <div class="option">
+                            <el-button type="danger" @click="downloadImage">{{ $t('Download') }}</el-button>
+                        </div>
                     </div>
-                <div class="option">
-                    <label>{{ $t('Watermark Text') }}</label>
-                    <el-input v-model="watermarkText"></el-input>
-                </div>
-                <div class="option">
-                    <label>{{ $t('Font Size')}}</label>
-                    <el-input-number v-model.number="fontSize"></el-input-number>
-                </div>
-                <div class="option">
-                    <label>{{ $t('Font Angle')}}</label>
-                    <el-input-number v-model.number="angle"></el-input-number>
-                </div>      
-                <div class="option">
-                    <label>{{ $t('WaterMark Padding')}}</label>
-                    <el-input-number v-model.number="padding"></el-input-number>
-                </div>      
-                <div class="option">
-                    <label>{{ $t('Font Color')}}:</label>
-                    <el-color-picker v-model="color"></el-color-picker>
-                </div>
-                <div class="option">
-                    <label>{{ $t('Font Opacity')}}:</label>
-                    <el-slider v-model.number="opacity" :min="0" :max="1" :step="0.05"></el-slider>
-                </div>
-                <div class="option">
-                    <el-button type="primary" @click="addWatermark">{{ $t('Add Watermark')}}</el-button>
-                </div>
-                <div class="option">
-                    <el-button type="primary" @click="downloadImage">{{ $t('Download') }}</el-button>
-                </div>
-                </div>
-            </el-aside>
-            <el-main>
-                <div class="canvas-container">
-                    <canvas ref="canvas"></canvas>
-                </div>
-            </el-main>
+                    <hr>
+                    <div>
+                        <h1><a href="https://www.buymeacoffee.com/emperinter" target="blank" style="color: yellowgreen;">{{ $t('Buy') }}</a></h1>
+                        <img src="../assets/wx.png" width="128" height="128">
+                        <img src="../assets/zfb.jpg" width="128" height="128">
+
+                    </div>
+                    <hr>
+                    <div>
+                        <a href="https://github.com/emperinter/watermark-vue" target="blank">watermark-vue</a>
+                    </div>
+
+                </el-aside>
+                <el-main>
+                    <div class="canvas-container">
+                        <canvas ref="canvas"></canvas>
+                    </div>
+                </el-main>
+            </el-container>
+            <el-footer>
+            </el-footer>
         </el-container>
     </div>
 </template>
