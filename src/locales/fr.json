@@ -1,14 +1,19 @@
 {
     "Image Watermark": "Filigrane d'image",
-    "Add Watermark": "Ajouter/modifier un filigrane",
+    "Add Watermark": "Ajouter / Modifier un filigrane",
     "Download": "Télécharger le fichier de filigrane",
-    "Watermark Text": "Texte du filigrane",
+    "Watermark Text": "Texte de filigrane",
     "Font Size": "Taille de police",
     "Font Color": "Couleur de police",
     "Font Angle": "Angle de police",
     "Font Opacity": "Opacité de police",
-    "WaterMark Padding": "Espacement du filigrane",
-    "WaterMarkText": "Ce document est destiné à la vérification...",
-    "Buy": "Et si vous faisiez un don ?",
-    "Information": "Faites attention à la taille de police et à l'espacement"
+    "WaterMark Padding": "Rembourrage de filigrane",
+    "WaterMarkText": "Ce document est destiné à la vérification uniquement...",
+    "Buy": "Achetez-moi une bière ?",
+    "Information": "Faites attention à la taille de police et au rembourrage",
+    "Previous": "Précédent",
+    "Next": "Suivant",
+    "Wechat Pay": "Paiement WeChat",
+    "Alipay": "Alipay",
+    "Paypal": "PayPal"
 }

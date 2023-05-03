@@ -1,14 +1,19 @@
 {
-    "Image Watermark": "画像ウォーターマーク",
-    "Add Watermark": "ウォーターマークを追加/変更",
-    "Download": "ウォーターマークファイルをダウンロード",
-    "Watermark Text": "ウォーターマークテキスト",
+    "Image Watermark": "画像の透かし",
+    "Add Watermark": "透かしの追加/変更",
+    "Download": "透かしファイルのダウンロード",
+    "Watermark Text": "透かしテキスト",
     "Font Size": "フォントサイズ",
     "Font Color": "フォントカラー",
     "Font Angle": "フォント角度",
     "Font Opacity": "フォント透明度",
-    "WaterMark Padding": "ウォーターマーク間隔",
+    "WaterMark Padding": "透かしパディング",
     "WaterMarkText": "この文書は検証用です...",
-    "Buy": "寄付してみませんか？",
-    "Information": "フォントサイズと間隔に注意してください"
+    "Buy": "ビールを買ってくれる？",
+    "Information": "フォントサイズとパディングに注意してください",
+    "Previous": "前へ",
+    "Next": "次へ",
+    "Wechat Pay": "WeChat支払い",
+    "Alipay": "Alipay",
+    "Paypal": "PayPal"
 }

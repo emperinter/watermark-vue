@@ -24,6 +24,8 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
+----
+
 ## Project Package
 
 ### test
@@ -37,5 +39,17 @@ npm run electron:serve
 
 ```shell
 npm run electron:build
+```
+
+---
+
+## docker 
+
+```shell
+docker build -t watermark .
+```
+
+```shell
+docker run -d -p 8080:8080 watermark
 ```
 
