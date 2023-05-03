@@ -93,16 +93,24 @@
   position: relative;
   background-color: #464849;
   color: var(--el-text-color-primary);
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-radius: 10;
 }
 .layout-container-demo .el-aside {
   color: var(--el-text-color-primary);
   background: var(--el-color-primary-light-8);
-  height: 60%;
+  height: 100%;
+  width: 20%;
+  margin-right: 10px;
+  border-radius: 10;
 }
 
 .layout-container-demo .el-main {
   padding: 0;
-  height: 60%;
+  height: 100%;
+  width: 100%;
+  min-width: 800px;
   background: #f8ff6b;
 }
 
@@ -113,8 +121,8 @@
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
-  /* margin-right: 20px;
-  margin-left: 20px; */
+  margin-right: 20px;
+  margin-left: 20px;
   margin: 20px;
 }
 
