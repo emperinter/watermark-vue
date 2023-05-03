@@ -46,10 +46,14 @@ npm run electron:build
 ## docker 
 
 ```shell
-docker build -t watermark .
+npm run build
 ```
 
 ```shell
-docker run -d -p 8080:8080 watermark
+docker build -t watermark -f Dockerfile_prod .
+```
+
+```shell
+docker run -d -p 8080:80 watermark
 ```
 

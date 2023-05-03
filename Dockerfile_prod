@@ -1,0 +1,11 @@
+# 使用 Nginx 作为 HTTP 服务器
+FROM nginx:alpine
+
+# 将构建好的静态文件复制到 Nginx 的默认目录
+COPY dist /usr/share/nginx/html
+
+# 暴露容器的端口
+EXPOSE 80
+
+# 启动命令
+CMD ["nginx", "-g", "daemon off;"]
