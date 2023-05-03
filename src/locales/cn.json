@@ -9,6 +9,11 @@
     "Font Opacity":"字体透明度",
     "WaterMark Padding":"水印间距",
     "WaterMarkText": "此证件仅供...验证使用",
-    "Buy":"要不赞助一下？",
-    "Information":"注意字体大小和间距"
+    "Buy":"要不给我买杯啤酒？",
+    "Information":"注意字体大小和间距",
+    "Previous":"前一页",
+    "Next":"后一页",
+    "Wechat Pay":"微信支付",
+    "Alipay":"支付宝",
+    "Paypal":"贝宝"
 }
