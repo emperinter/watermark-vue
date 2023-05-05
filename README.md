@@ -41,6 +41,11 @@ npm run electron:serve
 npm run electron:build
 ```
 
+### pake build
+
+```shell
+pake https://watermark.emperinter.info/ --name WaterMark --transparent --icon public/xxx.icns
+```
 ---
 
 ## docker 
