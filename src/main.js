@@ -7,11 +7,13 @@ import { createI18n } from 'vue-i18n'
 
 const i18n = new createI18n({
     locale: navigator.language, // set the default locale
-    fallbackLocale: 'cn', // set the fallback locale
+    fallbackLocale: 'en', // set the fallback locale
     messages: {
         en: require('./locales/en.json'),
         ja: require('./locales/ja.json'),
         cn: require('./locales/cn.json'),
+        zh: require('./locales/cn.json'),
+        "zh-CN": require('./locales/cn.json'),
         fr: require('./locales/fr.json'),
         de: require('./locales/de.json'),
         it: require('./locales/it.json'),
