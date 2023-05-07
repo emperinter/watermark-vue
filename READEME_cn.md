@@ -1,50 +1,49 @@
 # watermark-vue
 
-An WaterMark Written by Vue
+基于Vue写的隐私水印工具
 
 [English](README.md) | [中文介绍](READEME_cn.md)
 
-# CopyRight©️
+# 版权声明©️
 
 [LiCENSE](LICENSE.md) | [版权](LICENSE_cn.md)
 
-----
 
-# Project running
+# 运行
 
-## build by electron
+## 用electron去构建
 
 ```shell
 npm run electron:build
 ```
 
-## build by pake
+## 用pake去构建
 
 ```shell
 pake https://watermark.emperinter.info/ --name WaterMark --transparent --icon public/xxx.icns
 ```
 
-## run by docker
+## 使用docker运行
 
-- generate production file
+- 打包编译
 
 ```shell
 npm run build
 ```
 
-- build images
+- 构建镜像
 
 ```shell
 docker build -t watermark -f Dockerfile_prod .
 ```
 
-- run
+- 运行
 
 ```shell
 docker run -d -p 8080:80 watermark
 ```
 
-# Support Me
+# 赞助
 
 Buy me a beer: <a href="https://www.buymeacoffee.com/emperinter">
 <svg width="35" height="35" viewBox="0 0 884 1279" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -66,6 +65,6 @@ Buy me a beer: <a href="https://www.buymeacoffee.com/emperinter">
 
 ---
 
-|wechat pay |alipay|
+| 微信 | 支付宝 |
 |:---:|:---:|
 |![](src/assets/wx.png)|![](src/assets/zfb.jpg)|
