@@ -2,3 +2,7 @@ node_modules
 
 #Electron-builder output
 /dist_electron
+
+*.dmg
+
+dist_electron
