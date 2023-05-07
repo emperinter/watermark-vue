@@ -17,6 +17,7 @@ const i18n = new createI18n({
         fr: require('./locales/fr.json'),
         de: require('./locales/de.json'),
         it: require('./locales/it.json'),
+        es: require('./locales/es.json'),
     }
 })
 
