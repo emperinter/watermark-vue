@@ -101,7 +101,8 @@
 
           <hr>
           <div>
-              <p><a href="https://www.buymeacoffee.com/emperinter" target="blank" style="color: yellowgreen;">{{ $t('Buy') }}</a></p>
+              <!-- <p><a href="https://www.buymeacoffee.com/emperinter" target="blank" style="color: yellowgreen;">{{ $t('Buy') }}</a></p> -->
+              <p><a href="https://www.buymeacoffee.com/emperinter" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a></p>
               <div id="carouselExampleAutoplaying" class="carouser slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                   <div class="carousel-item">
