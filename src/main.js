@@ -18,6 +18,25 @@ const i18n = new createI18n({
         de: require('./locales/de.json'),
         it: require('./locales/it.json'),
         es: require('./locales/es.json'),
+        "en-US": require('./locales/en.json'),
+        tag_label: {
+            en: 'English',
+            ja: '日本語',
+            cn: '中文',
+            fr: 'Français',
+            de: 'Deutsch',
+            it: 'Italiano',
+            es: 'Español',
+        },
+        label_tag: {
+            English: 'en-US',
+            日本語: 'ja',
+            中文: 'cn',
+            Français: 'fr',
+            Deutsch: 'de',
+            Italiano: 'it',
+            Español: 'es',
+        }
     }
 })
 
