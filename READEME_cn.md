@@ -20,7 +20,7 @@ npm run electron:build
 ## 用pake去构建
 
 ```shell
-pake https://watermark.emperinter.info/ --name WaterMark --transparent --icon public/xxx.icns
+pake https://watermark.emperinter.info/ --name WaterMark --transparent --icon watermark.icns
 ```
 
 ## 使用docker运行
