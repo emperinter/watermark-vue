@@ -52,9 +52,9 @@
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-body-tertiary sidebar collapse" style="height: 100vh;">
       <div class="position-sticky pt-3 sidebar-sticky">
         <ul class="nav flex-column">
-            <li class="nav-item d-flex justify-content-center">
-                <img src="../assets/logo.png" alt="logo" style="width: 50px; height: 50px; margin-bottom:10px;">        
-            </li>
+            <!-- <li class="nav-item d-flex justify-content-center">
+                <img src="../assets/logo.png" alt="logo" style="width: 18px; height: 18px; margin-bottom:10px;">        
+            </li> -->
             <li class="nav-item">
                 <input class="form-control" type="file" placeholder="file" aria-label="file" @change="handleFileUpload" style="background-color: rgba(255, 0, 0, 0.594);">
             </li>
@@ -110,12 +110,23 @@
               </div>
           </div>
           <hr>
+          <select class="form-select" v-model="selectedLang" @change="changLang">
+            <option
+              v-for="item in Object.values($i18n.messages.tag_label)"
+              :key="item"
+              :label="item"
+              :value="$i18n.messages.label_tag[item]"
+              :selected="this.$i18n.locale === $i18n.messages.label_tag[item]"
+              >
+            </option>
+          </select>
+          <hr>
           <div>
               Copyright © <a href="mailto:emperinter@outlook.com">emperinter</a>
           </div>
       </div>
     </nav>
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="background-color: #00000083 !important;border-radius: 8px;overflow: auto;">
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="background-color: #00000083 !important;border-radius: 8px;overflow: auto;overflow-y: auto;">
         <canvas ref="canvas" class="my-4 w-100"></canvas>
       </main>
   </div>
@@ -210,6 +221,12 @@
         border-radius: 18px;
       }
 
+      img:hover{
+        text-decoration: none;
+        background-color: yellow;        
+        border-radius: 18px;
+      }
+
 </style>
 
   
@@ -226,10 +243,16 @@
         imageLoaded: false,
         imageSrc: null,
         // showButton: false
-        countdown: 5
+        countdown: 8,
+        selectedLang: this.$i18n.locale,
         };
     },
     methods: {
+      changLang() {
+        this.$i18n.locale = this.selectedLang;
+        this.watermarkText = this.$t('WaterMarkText');
+        this.drawWatermark();
+      },
       handleFileUpload(event) {
         const file = event.target.files[0];
         const reader = new FileReader();
@@ -273,7 +296,7 @@
             watermarkContext.fillText(this.watermarkText, 0, 0, watermarkMaxX);
             watermarkContext.restore();
             x += watermarkWidth + watermarkPadding;
-            if (x > watermarkMaxX) {
+            if (x > watermarkMaxX + watermarkWidth + watermarkPadding) {
               x = 0;
               y += watermarkHeight + watermarkPadding;
               if (y > watermarkMaxY + watermarkHeight + watermarkPadding) {
@@ -333,7 +356,7 @@
 
       setTimeout(() => {
         this.countdown = 0;
-      }, 5000);
+      }, 8000);
 
       // 禁止截屏
       document.addEventListener('keydown', function(e) {

@@ -1,0 +1,17 @@
+{
+    "appId": "com.example.myapp",
+    "productName": "WaterMark",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "icon": "public/favicon.ico"
+    },
+    "mac": {
+      "icon": "src/assets//watermark.icns"
+    },
+    "linux": {
+      "icon": "src/assets/logo.png"
+    }
+  }
+  
