@@ -5,73 +5,32 @@
       </button>
     </header>
 
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">{{ $t('Buy') }}</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div>
-              <br>
-              <p><a href="https://www.buymeacoffee.com/emperinter" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a></p>
-              <div id="carouselExampleAutoplaying" class="carouser slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item">
-                    <img src="../assets/wx.png" width="128" height="128">
-                    <br>
-                    <label>{{ $t('Wechat Pay')}}</label>     
-                  </div>
-                  <div class="carousel-item active">
-                    <img src="../assets/zfb.jpg" width="128" height="128">     
-                    <br>
-                    <label>{{ $t('Alipay')}}</label>
-                  </div>
-                  <!-- <div class="carousel-item">
-                    <img src="../assets/paypal.jpg " width="128" height="128"> 
-                    <br>
-                    <label>{{ $t('Paypal')}}</label>
-                  </div> -->
-                </div>
-                <br>
-              </div>
-          </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-          <!-- <button v-if="showButton" type="button" class="btn btn-primary" @click="downloadImage">{{ $t('Download') }}</button> -->
-          <button type="button" class="btn btn-success" @click="downloadImage" :disabled="countdown > 0">{{ $t('Download') }}{{countdown}}s</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
   <div class="container-fluid">
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-body-tertiary sidebar collapse" style="height: 100vh;">
       <div class="position-sticky pt-3 sidebar-sticky">
         <ul class="nav flex-column">
-            <!-- <li class="nav-item d-flex justify-content-center">
-                <img src="../assets/logo.png" alt="logo" style="width: 18px; height: 18px; margin-bottom:10px;">        
-            </li> -->
             <li class="nav-item">
                 <input class="form-control" type="file" placeholder="file" aria-label="file" @change="handleFileUpload" style="background-color: rgba(255, 0, 0, 0.594);">
             </li>
+            <br>
             <li class="nav-item">
                 <label>{{ $t('Watermark Text') }}</label>
-                <input class="form-control" v-model="watermarkText" @input="addWatermark">
+                <textarea class="form-control" v-model="watermarkText" @input="addWatermark" style="background-color:rgba(0, 255, 255, 0.05);border-radius: 0.375rem;"></textarea>
             </li>
             <li>
               <label>{{ $t('Font Size')}} </label>
+              <input type="range" class="form-range" v-model.number="fontSize" min="1" max="100" step="1" @change="addWatermark"  style="background-color:rgba(0, 255, 255, 0.05);border-radius: 0.375rem;">
               <input type="number" class="form-control" v-model.number="fontSize" @change="addWatermark">
             </li>
             <li>
               <label>{{ $t('Font Angle')}} </label>
+              <input type="range" class="form-range" v-model.number="angle" min="0" max="360" step="1" @change="addWatermark"  style="background-color:rgba(0, 255, 255, 0.05);border-radius: 0.375rem;">
               <input type="number" class="form-control" v-model.number="angle" @change="addWatermark">
             </li>
             <li>
               <label>{{ $t('WaterMark Padding')}} </label>
+              <input type="range" class="form-range" v-model.number="padding" min="0" max="1000" step="1" @change="addWatermark"  style="background-color:rgba(0, 255, 255, 0.05);border-radius: 0.375rem;">
               <input type="number" class="form-control" v-model.number="padding" @change="addWatermark">
             </li>
             <li>
@@ -79,36 +38,15 @@
               <input type="color" class="form-control" v-model="color" @change="addWatermark">
             </li>
             <li>
-              <label>{{ $t('Font Opacity')}} {{this.opacity}} </label>
-              <input type="range" class="form-range" v-model.number="opacity" min="0" max="1" step="0.05" @change="addWatermark"  style="background-color:rgba(0, 255, 255, 0.05);border-radius: 18px;">
+              <label>{{ $t('Font Opacity')}}</label>
+              <input type="range" class="form-range" v-model.number="opacity" min="0.1" max="1" step="0.05" @change="addWatermark"  style="background-color:rgba(0, 255, 255, 0.05);border-radius: 0.375rem;">
+              <input type="number" class="form-control" v-model.number="opacity" @change="addWatermark">
             </li>
+            <hr>
             <li>
-              <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">{{ $t('Download') }}</button>
+              <button class="btn btn-warning" @click="downloadImage">{{ $t('Download') }}</button>
             </li>            
         </ul>
-          <hr>
-          <div>
-              <p><a href="https://www.buymeacoffee.com/emperinter" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a></p>
-              <div id="carouselExampleAutoplaying" class="carouser slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item">
-                    <img src="../assets/wx.png" width="128" height="128">
-                    <br>
-                    <label>{{ $t('Wechat Pay')}}</label>     
-                  </div>
-                  <div class="carousel-item active">
-                    <img src="../assets/zfb.jpg" width="128" height="128">     
-                    <br>
-                    <label>{{ $t('Alipay')}}</label>
-                  </div>
-                  <!-- <div class="carousel-item">
-                    <img src="../assets/paypal.jpg " width="128" height="128"> 
-                    <br>
-                    <label>{{ $t('Paypal')}}</label>
-                  </div> -->
-                </div>
-              </div>
-          </div>
           <hr>
           <select class="form-select" v-model="selectedLang" @change="changLang">
             <option
@@ -126,7 +64,10 @@
           </div>
       </div>
     </nav>
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="background-color: #00000083 !important;border-radius: 8px;overflow: auto;overflow-y: auto;">
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4  container-fluid my-container" style="background-color: #00000083 !important;border-radius: 0.375rem;overflow: scroll;overflow-y: scroll;">
+        <div style="display: flex;justify-content: center;align-items: center; color: white;height: 100vh;" v-if="showDefaultMessage">
+          <h1>{{ defaultMessage }}</h1>
+        </div>
         <canvas ref="canvas" class="my-4 w-100"></canvas>
       </main>
   </div>
@@ -212,7 +153,18 @@
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
-        pointer-events: none; /* 禁止鼠标事件 */
+        /* 禁止鼠标事件 */
+        pointer-events: none; 
+        display: block;
+      }
+
+      .canvas-container {
+        width: 100%;
+      }
+
+      .my-container {
+        height: 100vh; 
+        /* 使容器高度等于视口高度 */
       }
 
       a:hover{
@@ -245,6 +197,8 @@
         // showButton: false
         countdown: 8,
         selectedLang: this.$i18n.locale,
+        showDefaultMessage: true,
+        defaultMessage: 'No image available.',
         };
     },
     methods: {
@@ -261,6 +215,7 @@
           this.imageLoaded = true;
           this.imageSrc = event.target.result;
           this.drawWatermark();
+          this.showDefaultMessage = false;
         };
   
         reader.readAsDataURL(file);
@@ -332,32 +287,6 @@
       },
     },
     mounted() {
-      // 初始化canvas
-      // const canvas = this.$refs.canvas;
-      // const ctx = canvas.getContext('2d');
-      // const img = new Image();
-      // img.src = '../assets/wx.png';    
-      // img.onload = function() {
-      //   canvas.width = img.width;
-      //   canvas.height = img.height;
-      //   ctx.clearRect(0, 0, canvas.width, canvas.height);
-      //   ctx.drawImage(img, img.width, img.height);
-      // };
-
-      // 倒计时
-      // setTimeout(() => {
-      //   this.showButton = true;
-      // }, 5000);
-      setInterval(() => {
-        if (this.countdown > 0) {
-          this.countdown--;
-        }
-      }, 1000);
-
-      setTimeout(() => {
-        this.countdown = 0;
-      }, 8000);
-
       // 禁止截屏
       document.addEventListener('keydown', function(e) {
         if (e.keyCode === 44 || e.keyCode === 91 || e.keyCode === 92 || e.keyCode === 145) {
