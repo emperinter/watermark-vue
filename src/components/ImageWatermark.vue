@@ -51,7 +51,8 @@
               <input type="range" class="form-range" v-model.number="scale" min="0.1" max="1" step="0.1" @change="addWatermark"  style="background-color:rgba(0, 255, 255, 0.05);border-radius: 0.375rem;">
               <input type="number" class="form-control" v-model.number="scale" @change="addWatermark">
             </li>
-            <hr>
+            <!-- <hr> -->
+            <br>
             <li>
               <button class="btn btn-warning" @click="downloadImage">{{ $t('Download') }}</button>
             </li>            
@@ -63,14 +64,14 @@
               :key="item"
               :label="item"
               :value="$i18n.messages.label_tag[item]"
-              :selected="this.$i18n.locale === $i18n.messages.label_tag[item]"
+              :selected="($i18n.messages.label_tag[item] && $i18n.locale === $i18n.messages.label_tag[item]) || item === 'English'"
               >
             </option>
           </select>
-          <!-- <hr>
-          <div>
+          <!-- <hr> -->
+          <p>
               Copyright © emperinter
-          </div> -->
+          </p>
       </div>
     </nav>
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4  container-fluid my-container" style="background-color: #00000083 !important;border-radius: 0.375rem;overflow: scroll;overflow-y: scroll;">

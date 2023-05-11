@@ -15,7 +15,8 @@ async function createWindow() {
   const win = new BrowserWindow({
     width: 1400,
     height: 900,
-    title: "WaterMark",
+    // frame: false, // 隐藏标题栏
+    title: "",
     icon: "./assets/logo.png",
     webPreferences: {
       
