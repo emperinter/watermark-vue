@@ -19,6 +19,7 @@ const i18n = new createI18n({
         it: require('./locales/it.json'),
         es: require('./locales/es.json'),
         "en-US": require('./locales/en.json'),
+        ko: require('./locales/ko.json'),
         tag_label: {
             en: 'English',
             ja: '日本語',
@@ -27,6 +28,7 @@ const i18n = new createI18n({
             de: 'Deutsch',
             it: 'Italiano',
             es: 'Español',
+            ko: '한국어',
         },
         label_tag: {
             English: 'en-US',
@@ -36,6 +38,7 @@ const i18n = new createI18n({
             Deutsch: 'de',
             Italiano: 'it',
             Español: 'es',
+            한국어: 'ko',
         }
     }
 })

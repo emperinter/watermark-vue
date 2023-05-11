@@ -11,7 +11,10 @@
       <div class="position-sticky pt-3 sidebar-sticky">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <input class="form-control" type="file" placeholder="file" aria-label="file" @change="handleFileUpload" style="background-color: rgba(255, 0, 0, 0.594);">
+                <input class="form-control" type="file" accept="image/*" placeholder="file" aria-label="file" @change="handleFileUpload" style="background-color: rgba(255, 0, 0, 0.594);">
+                <div v-if="showErrorMessage" class="alert alert-danger" role="alert">
+                  <i class="bi bi-exclamation-triangle-fill"></i> {{ $t('Vailid Info') }}
+                </div>
             </li>
             <br>
             <li class="nav-item">
@@ -25,7 +28,7 @@
             </li>
             <li>
               <label>{{ $t('Font Angle')}} </label>
-              <input type="range" class="form-range" v-model.number="angle" min="0" max="360" step="1" @change="addWatermark"  style="background-color:rgba(0, 255, 255, 0.05);border-radius: 0.375rem;">
+              <input type="range" class="form-range" v-model.number="angle" min="-180" max="180" step="1" @change="addWatermark"  style="background-color:rgba(0, 255, 255, 0.05);border-radius: 0.375rem;">
               <input type="number" class="form-control" v-model.number="angle" @change="addWatermark">
             </li>
             <li>
@@ -41,6 +44,12 @@
               <label>{{ $t('Font Opacity')}}</label>
               <input type="range" class="form-range" v-model.number="opacity" min="0.1" max="1" step="0.05" @change="addWatermark"  style="background-color:rgba(0, 255, 255, 0.05);border-radius: 0.375rem;">
               <input type="number" class="form-control" v-model.number="opacity" @change="addWatermark">
+            </li>
+            <li>
+              <label>{{ $t('Image Scale') }}</label>
+              <!-- <input type="range" class="form-range" v-model.number="scale" min="0.1" max="1" step="0.1" @change="addWatermark" @wheel="handleMouseWheel($event, 'scale', 0.1)"  style="background-color:rgba(0, 255, 255, 0.05);border-radius: 0.375rem;"> -->
+              <input type="range" class="form-range" v-model.number="scale" min="0.1" max="1" step="0.1" @change="addWatermark"  style="background-color:rgba(0, 255, 255, 0.05);border-radius: 0.375rem;">
+              <input type="number" class="form-control" v-model.number="scale" @change="addWatermark">
             </li>
             <hr>
             <li>
@@ -58,17 +67,18 @@
               >
             </option>
           </select>
-          <hr>
+          <!-- <hr>
           <div>
-              Copyright © <a href="mailto:emperinter@outlook.com">emperinter</a>
-          </div>
+              Copyright © emperinter
+          </div> -->
       </div>
     </nav>
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4  container-fluid my-container" style="background-color: #00000083 !important;border-radius: 0.375rem;overflow: scroll;overflow-y: scroll;">
         <div style="display: flex;justify-content: center;align-items: center; color: white;height: 100vh;" v-if="showDefaultMessage">
           <h1>{{ defaultMessage }}</h1>
         </div>
-        <canvas ref="canvas" class="my-4 w-100"></canvas>
+        <!-- <canvas ref="canvas" class="my-4 w-100"></canvas> -->
+        <canvas ref="canvas" ></canvas>
       </main>
   </div>
   </div>
@@ -160,6 +170,7 @@
 
       .canvas-container {
         width: 100%;
+        /* height: 100%; */
       }
 
       .my-container {
@@ -186,47 +197,65 @@
   export default {
     data() {
       return {
-        watermarkText: this.$t('WaterMarkText'),
-        fontSize: 28,
-        color: '#000000',
-        angle: 45,
-        opacity: 0.6,
-        padding: 40,
-        imageLoaded: false,
-        imageSrc: null,
-        // showButton: false
-        countdown: 8,
-        selectedLang: this.$i18n.locale,
-        showDefaultMessage: true,
-        defaultMessage: 'No image available.',
+          watermarkText: this.$t('WaterMarkText'),
+          fontSize: 28,
+          color: '#000000',
+          angle: 0,
+          opacity: 0.3,
+          padding: 40,
+          scale: 1,
+          imageLoaded: false,
+          imageSrc: null,
+          // showButton: false
+          countdown: 8,
+          selectedLang: this.$i18n.locale,
+          showDefaultMessage: true,
+          defaultMessage: this.$t('Information'),
+          showErrorMessage: false
         };
     },
     methods: {
       changLang() {
         this.$i18n.locale = this.selectedLang;
         this.watermarkText = this.$t('WaterMarkText');
+        this.defaultMessage = this.$t('Information'),
         this.drawWatermark();
       },
       handleFileUpload(event) {
         const file = event.target.files[0];
-        const reader = new FileReader();
-  
-        reader.onload = (event) => {
-          this.imageLoaded = true;
-          this.imageSrc = event.target.result;
-          this.drawWatermark();
-          this.showDefaultMessage = false;
-        };
-  
-        reader.readAsDataURL(file);
+        const validImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+        const canvas = this.$refs.canvas;
+        const context = canvas.getContext('2d');
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        if (file && validImageTypes.includes(file.type)) {
+          this.showErrorMessage = false;
+          const reader = new FileReader();
+    
+          reader.onload = (event) => {
+            this.imageLoaded = true;
+            this.imageSrc = event.target.result;
+            this.drawWatermark();
+            this.showDefaultMessage = false;
+          };
+    
+          reader.readAsDataURL(file);
+        }else{
+          this.showErrorMessage = true;
+        }
+      },
+      handleMouseWheel(event, propertyName,step) {
+        event.preventDefault();
+        const delta = Math.sign(event.deltaY);
+        this[propertyName] += delta * step;
       },
       drawWatermark() {
         const canvas = this.$refs.canvas;
         const context = canvas.getContext('2d');
         const img = new Image();
         img.onload = () => {
-          canvas.width = img.width;
-          canvas.height = img.height;
+          canvas.width = img.width *  this.scale;
+          canvas.height = img.height * this.scale;
           context.drawImage(img, 0, 0, canvas.width, canvas.height);
           const watermarkCanvas = document.createElement('canvas');
           watermarkCanvas.width = canvas.width;
@@ -237,7 +266,7 @@
           watermarkContext.textAlign = 'center';
           watermarkContext.textBaseline = 'middle';
           const watermarkWidth = watermarkContext.measureText(this.watermarkText).width;
-          const watermarkHeight = 28;
+          const watermarkHeight = 18;
           const watermarkPadding = this.padding;
           const watermarkMaxX = canvas.width;
           const watermarkMaxY = canvas.height;
