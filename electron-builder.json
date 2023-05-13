@@ -1,6 +1,7 @@
 {
-    "appId": "com.example.myapp",
-    "productName": "WaterMark",
+    "appId": "com.emperinter.watermark",
+    "productName": "IdWaterMark",
+    "buildVersion": "1.0.0",
     "directories": {
       "output": "dist"
     },

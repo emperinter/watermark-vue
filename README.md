@@ -14,8 +14,16 @@ An WaterMark Written by Vue
 
 ## build by electron
 
+> 会自动进行签名校验生成dmg文件
+
 ```shell
 npm run electron:build
+```
+
+## convert dmg to pkg
+
+```shell
+./quickpkg dist_electron/WaterMark-0.1.0-arm64.dmg
 ```
 
 ## build by pake

@@ -6,3 +6,7 @@ node_modules
 *.dmg
 
 dist_electron
+
+*.pkg
+
+.DS_Store
