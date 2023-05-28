@@ -15,14 +15,13 @@
         ]
       }
     ],    
-    "identity": "Apple Distribution: HUIZHANG HE (46UJ4F7GJ4)",
     "type": "distribution",
     "category": "public.app-category.photography",
     "hardenedRuntime" : true,
     "gatekeeperAssess": false,
     "entitlements": "build/entitlements.mas.plist",
     "entitlementsInherit": "build/entitlements.mas.inherit.plist",
-    "provisioningProfile": "build/IDWaterMark.provisionprofile"
+    "provisioningProfile": "build/IDWaterMark.provisionprofile",
+    "identity": "Apple Distribution: HUIZHANG HE (46UJ4F7GJ4)"
     }
 }
-

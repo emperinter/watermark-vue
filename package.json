@@ -1,5 +1,5 @@
 {
-  "name": "IdWaterMark",
+  "name": "IDWaterMark",
   "version": "1.0.0",
   "private": true,
   "author": {
@@ -7,8 +7,8 @@
     "email": "emperinter@outlook.com",
     "url": "https://www.emperinter.info"
   },
-  "description": "watermark",
-  "scripts": {
+  "description": "Protect Your Photos with IDWatermark for macOS: Preserve Your Privacy with Confidence Are you concerned about the privacy of your personal photos ? Look no further than IDWatermark,the leading macOS app designed to safeguard your precious memories.With IDWatermark,you can add custom watermarks to your photos,ensuring their protection and preventing unauthorized use.With IDWatermark,you can confidently share your photos online,knowing that your ownership is clearly indicated and your privacy is protected.Preserve the integrity of your images and prevent unauthorized usage or copyright infringement.Download IDWatermark for macOS today and experience the peace of mind that comes with protecting your personal photos.Take control of your privacy and ensure your images are used only with your permission.",
+  "scripts" : {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",

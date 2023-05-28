@@ -18,6 +18,7 @@ async function createWindow() {
     // frame: false, // 隐藏标题栏
     title: "",
     icon: "./assets/logo.png",
+    sandbox: true, // 开启沙箱模式
     webPreferences: {
       
       // Use pluginOptions.nodeIntegration, leave this alone
